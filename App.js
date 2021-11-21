@@ -4,12 +4,13 @@ import {
   StatusBar,
 } from 'react-native';
 import HomeScreen from './src/screens/Home';
+import Post from './src/components/Post';
 
 const App = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
       <StatusBar barStyle={'light-content'} />
-      <HomeScreen />
+      <Post />
     </SafeAreaView>
   );
 };
