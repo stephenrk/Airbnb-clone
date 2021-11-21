@@ -1,16 +1,12 @@
 import React, {useState} from 'react';
 import {View, Text, Pressable} from 'react-native';
-import {useNavigation, useRoute} from '@react-navigation/native';
 
 import styles from './styles.js';
 
-const GuestsScreen = (props) => {
+const GuestsScreen = ({ navigation }) => {
   const [adults, setAdults] = useState(0);
   const [children, setChildren] = useState(0);
   const [infants, setInfants] = useState(0);
-
-  const navigation = useNavigation();
-  const route = useRoute();
 
   return (
     <View style={{justifyContent: 'space-between', height: '100%'}}>
@@ -27,7 +23,7 @@ const GuestsScreen = (props) => {
               <Text style={{fontSize: 20, color: '#474747'}}>-</Text>
             </Pressable>
 
-            <Text style={{marginHorizontal: 20, fontSize: 16}}>{adults}</Text>
+            <Text style={{marginHorizontal: 20, fontSize: 16, color: '#000'}}>{adults}</Text>
 
             <Pressable
               onPress={() => setAdults(adults + 1)}
@@ -49,7 +45,7 @@ const GuestsScreen = (props) => {
               <Text style={{fontSize: 20, color: '#474747'}}>-</Text>
             </Pressable>
 
-            <Text style={{marginHorizontal: 20, fontSize: 16}}>{children}</Text>
+            <Text style={{marginHorizontal: 20, fontSize: 16, color: '#000'}}>{children}</Text>
 
             <Pressable
               onPress={() => setChildren(children + 1)}
@@ -71,7 +67,7 @@ const GuestsScreen = (props) => {
               <Text style={{fontSize: 20, color: '#474747'}}>-</Text>
             </Pressable>
 
-            <Text style={{marginHorizontal: 20, fontSize: 16}}>{infants}</Text>
+            <Text style={{marginHorizontal: 20, fontSize: 16, color: '#000'}}>{infants}</Text>
 
             <Pressable
               onPress={() => setInfants(infants + 1)}
@@ -84,16 +80,7 @@ const GuestsScreen = (props) => {
 
       <Pressable
         onPress={() =>
-          navigation.navigate('Home', {
-            screen: 'Explore',
-            params: {
-              screen: 'SearchResults',
-              params: {
-                guests: adults + children,
-                viewport: route.params.viewport,
-              }
-            },
-          })
+          navigation.navigate('Home')
         }
         style={{
           marginBottom: 20,
