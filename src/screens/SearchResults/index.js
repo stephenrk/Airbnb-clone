@@ -1,22 +1,19 @@
-import React from 'react'
-import { FlatList, View } from 'react-native'
-import styles from './styles'
-import Post from '../../components/Post'
+import React from "react";
+import { View, FlatList } from "react-native";
+import Post from '../../components/Post';
 
-import feed from '../../../assets/data/feed'
+const SearchResultsScreen = (props) => {
 
-const SearchResultsScreen = () => {
-    return (
-        <View>
-            <FlatList
-                data={feed}
-                keyExtractor={item => item.id.toString()}
-                renderItem={({ item }) => (
-                    <Post post={item} />
-                )}
-            />
-        </View>
-    )
-}
+  const { posts } = props;
 
-export default SearchResultsScreen
+  return (
+    <View>
+      <FlatList
+        data={posts}
+        renderItem={({item}) => <Post post={item} />}
+      />
+    </View>
+  );
+};
+
+export default SearchResultsScreen;

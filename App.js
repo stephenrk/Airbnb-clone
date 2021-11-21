@@ -1,18 +1,17 @@
+import 'react-native-gesture-handler';
+
 import React from 'react'
 import {
   SafeAreaView,
   StatusBar,
 } from 'react-native'
-import HomeScreen from './src/screens/Home'
-import Post from './src/components/Post'
-import SearchResultsScreen from './src/screens/SearchResults'
-import DestinationSearchScreen from './src/screens/DestinationSearch'
+import Router from './src/navigation/Router';
 
 const App = () => {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <StatusBar barStyle={'light-content'} />
-      <DestinationSearchScreen />
+      <Router />
     </SafeAreaView>
   )
 }
